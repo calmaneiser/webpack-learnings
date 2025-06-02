@@ -2,7 +2,7 @@
   "name": "webpack-app",
   "type": "module",
   "version": "1.0.0",
-  "description": "This is Neiser's playground for a Webpack application setup with Babel, ESLint, Stylelint, and Commitizen.",
+  "description": "This is Neiser's playground for a Webpack application setup with Babel, ESLint, Stylelint, Husky and Commitizen.",
   "main": "index.js",
   "scripts": {
     "test": "Running tests is not configured yet.",
