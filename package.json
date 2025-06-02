@@ -14,7 +14,7 @@
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "commit": "cz",
-    "prepare": "node -e \"try { require('husky').install() } catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e }\""
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
