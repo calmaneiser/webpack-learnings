@@ -1,33 +1,47 @@
-# 🚀 Webpack Learning Project
+# 🚀 Webpack Learning Project - Neiser 2025
 
-This project is my hands-on exploration of Webpack fundamentals, including:
+This project is my hands-on playground for mastering Webpack fundamentals, including:
 
 - 🎯 Setting up multiple entry points for multi-page apps
 - ⚙️ Configuring loaders for JavaScript (ES6+) and CSS
-- 📄 Using plugins like HtmlWebpackPlugin for HTML file generation
-- 🔥 Enabling dev server with hot module replacement and clean URLs
+- 📄 Using plugins like HtmlWebpackPlugin for automatic HTML file generation
+- 🔥 Enabling development server with hot module replacement and clean URLs
 - 🧩 Understanding chunking and output configuration
-- 🎯 Understanding commitizten
+- ✅ Using Commitizen to standardize commit messages
+- 🔒 Using Husky to enforce pre-commit linting and hooks
+- ⚙️ Automating builds and deployments with GitHub Actions to GitHub Pages
 
 ## 🛠 Getting Started
 
 1. Clone the repository
-2. `npm install`
-3. `npm run start`
+2. Run `npm install` to install dependencies
+3. Run `npm run start` to launch the dev server
 
-## 🛠 Build
+## 📦 Build
 
 To build the project for development or production:
 
-1. npm run build or npm run build:prod
-2. build will be in the `dist/` folder
+1. Run `npm run build` for development build or `npm run build:prod` for production
+2. The output files will be in the `dist/` folder
 
-## 🛠 Development
+## 💻 Development Workflow
 
-Commit your changes guided with Commitizen:
+Use Commitizen to guide your commit messages for better commit history:
 
-1. npm run `commit`
+```bash
+npm run commit
+```
 
-# 💡 Notes
+## 🚀 Deployment
 
-This is a simple playground to deepen my Webpack knowledge and improve modern frontend tooling skills.
+This project uses GitHub Actions with a workflow configured in `.github/workflows/build.yml` to:
+
+- Build the project
+- Deploy the contents of the `dist/` folder to the `gh-pages` branch
+- Serve the static site via GitHub Pages
+
+Make sure the GitHub Pages source is set to the `gh-pages` branch in your repo settings.
+
+## 💡 Notes
+
+This project is a simple but effective playground to deepen my Webpack knowledge and improve my skills with modern frontend tooling like Babel, ESLint, Stylelint, Husky, Commitizen, and GitHub Actions for CI/CD.
