@@ -1,36 +1,127 @@
-/* style.css */
+/* =====================
+   Root Variables
+===================== */
+:root {
+  /* Dark monotone palette with vibrant green accents */
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --card-shadow: rgba(0, 0, 0, 0.6);
+
+  --text-primary: #ffffff;
+  --text-secondary: #9fcf9f; /* soft fresh light green */
+  --text-accent: #22c55e; /* vibrant green accent */
+  --text-footer: #4caf50; /* muted medium green */
+
+  --header-shadow: rgba(0, 0, 0, 0.4);
+  --main-shadow: rgba(0, 0, 0, 0.3);
+
+  --button-bg: #16a34a; /* rich green */
+  --button-bg-hover: #22c55e; /* brighter green */
+  --button-shadow: rgba(22, 163, 74, 0.5);
+  --button-shadow-hover: rgba(34, 197, 94, 0.7);
+  --button-shadow-active: rgba(34, 197, 94, 0.5);
+
+  --code-bg: #0d1117;
+  --code-shadow: rgba(0, 0, 0, 0.5);
+
+  --cool-list-bg: #16a34a33; /* translucent rich green */
+  --cool-list-bg-hover: #22c55e55; /* translucent brighter green */
+  --cool-list-shadow: rgba(22, 163, 74, 0.3); /* softer green shadow */
+  --cool-list-shadow-hover: rgba(34, 197, 94, 0.6); /* brighter green shadow */
+}
+
+/* =====================
+   Base & Layout
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 body {
-  min-height: 100vh;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  min-height: 100vh;
   display: flex;
+  gap: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  background: #fffff8;
-  color: rgb(65, 65, 65);
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  transition: background 0.5s ease;
 }
 
+/* =====================
+   Sections: Header, Main, Footer
+===================== */
 header,
 main,
 footer {
-  width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 760px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px var(--card-shadow);
+  transition: transform 0.3s ease;
+  backdrop-filter: saturate(180%) blur(12px);
 }
 
+footer,
+header {
+  flex-grow: 0; /* don’t grow */
+  flex-shrink: 0; /* don’t shrink */
+  flex-basis: auto; /* height based on content */
+}
+
+main {
+  /** flex: 0.8;  grow to fill available space */
+  /** flex-shrink: 1; /* shrink if needed */
+}
+
+header:hover,
+main:hover,
+footer:hover {
+  transform: translateY(-3px);
+}
+
+/* =====================
+   Header Styles
+===================== */
 header h1 {
-  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.4em;
+  margin-top: 0.4em;
   text-align: center;
+  letter-spacing: 1.2px;
+  color: var(--text-primary);
+  text-shadow: 1px 1px 3px var(--header-shadow);
 }
 
 header p {
-  margin-top: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
   text-align: center;
+  color: var(--text-secondary);
 }
 
+/* =====================
+   Main Styles
+===================== */
 main section {
   width: 100%;
   display: flex;
@@ -39,31 +130,145 @@ main section {
 }
 
 main h2 {
-  margin-bottom: 0.5em;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0;
+  margin-bottom: 0.2em;
   text-align: center;
+  color: var(--text-accent);
+  text-shadow: 1px 1px 3px var(--main-shadow);
 }
 
 main p {
+  font-size: 1rem;
+  color: var(--text-accent);
   text-align: center;
+  line-height: 1.5;
 }
 
+/* =====================
+   Footer
+===================== */
+footer {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-footer);
+  user-select: none;
+}
+
+/* =====================
+   Buttons / Links
+===================== */
 a {
   display: inline-block;
-  padding: 10px 20px;
-  background: #0078d7;
+  padding: 12px 28px;
+  background: var(--button-bg);
   color: #fff;
   text-decoration: none;
-  border-radius: 4px;
-  margin-top: 1em;
-  transition: background 0.2s;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5em;
+  box-shadow: 0 4px 15px var(--button-shadow);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  user-select: none;
 }
 
 a:hover {
-  background: #005fa3;
+  background: var(--button-bg-hover);
+  box-shadow: 0 6px 20px var(--button-shadow-hover);
+  transform: translateY(-3px);
 }
 
-footer {
-  margin-top: 40px;
-  text-align: center;
-  color: #888;
+a:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px var(--button-shadow-active);
+}
+
+/* =====================
+   Code Block
+===================== */
+code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: 'Fira Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 0 6px var(--code-shadow);
+}
+
+/* =====================
+   Cool List
+===================== */
+ul.cool-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.cool-list li {
+  background: var(--cool-list-bg);
+  margin: 0.5em 0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px var(--cool-list-shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+
+ul.cool-list li:hover {
+  background: var(--cool-list-bg-hover);
+  box-shadow: 0 4px 10px var(--cool-list-shadow-hover);
+  cursor: default;
+}
+
+/* =====================
+   Responsive (≤600px)
+===================== */
+@media screen and (max-width: 850px) {
+  .container {
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  body {
+    padding: 0px 10px;
+  }
+
+  header,
+  main,
+  footer {
+    padding: 20px 15px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p,
+  main p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  main h2 {
+    font-size: 1.3rem;
+  }
+
+  a {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
 }
