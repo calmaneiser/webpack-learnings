@@ -42,6 +42,13 @@ This project uses GitHub Actions with a workflow configured in `.github/workflow
 
 Make sure the GitHub Pages source is set to the `gh-pages` branch in your repo settings.
 
+## 🚀 Redeployment
+
+1. Delete the existing `gh-branch` branch on your repo.
+2. Rerun your build and push the new `gh-branch`.
+3. Go to **Settings > Pages** in GitHub.
+4. Set **Build and deploy from branch** to your updated `gh-branch`.
+
 ## 💡 Notes
 
 This project is a simple but effective playground to deepen my Webpack knowledge and improve my skills with modern frontend tooling like Babel, ESLint, Stylelint, Husky, Commitizen, and GitHub Actions for CI/CD.
