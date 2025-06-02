@@ -1,0 +1,36 @@
+name: Neiser Webpack Build
+description: Build my Webpack project and upload the dist folder as an artifact.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run production build
+        run: npm run build:prod
+
+      - name: Upload dist folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
